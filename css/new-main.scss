@@ -1,0 +1,24 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+@import	"bootstrap";
+
+.site-nav {
+    @extend .navbar;
+    @extend .navbar-default;
+}
+
+.site-nav-header {
+    @extend .container-fluid;
+    @extend .navbar-header;
+}
+
+.site-nav-menu {
+    @extend .nav;
+    @extend .navbar-nav;
+}    
+
+.site-title {
+    @extend navbar-brand;
+}
