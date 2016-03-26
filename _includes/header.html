@@ -1,17 +1,23 @@
 <!-- -*- engine: liquid -*- -->
 <header class="site-header">
-    <div class="wrapper">
-	<nav class="site-nav">
-	    <div class="site-nav-header">
-		<ul class="site-nav-menu">
-		    {% for my_page in site.pages %}
-			{% if my_page.title %}
-			    <li><a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>
-			{% endif %}
-		    {% endfor %}
-		</ul>
-		<a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
-	    </div>
-	</nav>
-    </div>
+    <nav class="site-nav">
+	<div class="site-nav-header">
+	    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#id-site-nav-menu-container" aria-expanded="false">
+		<span class="sr-only">Toggle navigation</span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	    </button>
+	    <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+	</div>
+	<div class="site-nav-menu-container" id="id-site-nav-menu-container">
+	    <ul class="site-nav-menu">
+		{% for my_page in site.pages %}
+		    {% if my_page.title %}
+			<li><a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>
+		    {% endif %}
+		{% endfor %}
+	    </ul>
+	</div>
+    </nav>
 </header>

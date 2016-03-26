@@ -4,21 +4,135 @@
 @charset "utf-8";
 @import	"bootstrap";
 
-.site-nav {
-    @extend .navbar;
-    @extend .navbar-default;
+@mixin vertical-align {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
-.site-nav-header {
-    @extend .container-fluid;
-    @extend .navbar-header;
+blockquote.testimonial {
+    border: 0px;
+    quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote.testimonial:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+}
+blockquote.testimonial:after {
+    color: #ccc;
+    content: close-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-top: 0.4em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+    float: right;
+    clear: both;
+}
+.quote-source {
+    text-align: right;
 }
 
-.site-nav-menu {
-    @extend .nav;
-    @extend .navbar-nav;
-}    
+.site-header {
+    .site-nav {
+	@extend .navbar;
+	@extend .navbar-default;
+    }
 
-.site-title {
-    @extend navbar-brand;
+    .site-nav-header {
+	@extend .container;
+	@extend .navbar-header;
+    }
+
+    .site-nav-menu {
+	@extend .nav;
+	@extend .navbar-nav;
+    }    
+
+    .site-title {
+	@extend .navbar-brand;
+    }
+
+    .site-nav-menu-container {
+	@extend .collapse;
+	@extend .navbar-collapse;
+    }
+
+    ul.site-nav-menu {
+	@extend .nav;
+	@extend .navbar-nav;
+    }
+}
+
+.wrapper-footer {
+    background: rgb(220, 220, 220);
+}
+
+.site-footer {
+    @extend .container;
+    padding: 30px 0;
+
+    h1 {
+	font-size: 1.2em;
+    }
+
+    .service-info {
+	@include make-md-column(4);
+    }
+
+    .service-list {
+	@include make-md-column(3);
+    }
+}
+
+
+.frontpage {
+    .header-image {
+	height: 500px;
+	background-image: url('/assets/business_coaching.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	margin-bottom: 50px;
+    }
+
+    .content {
+	@extend .container;
+    }
+
+    .key-point-3 {
+	@include make-md-column(4);
+    }
+
+    .key-point-2 {
+	@include make-md-column(6);
+    }
+
+    .button {
+	@extend .btn;
+    }
+
+    .key-point-cta {
+	text-align: right;
+    }
+
+    .button-cta {
+	@extend .btn-success;
+    }
+
+
+    .full-content {
+	margin: 50px 0;
+	padding: 80px 0;
+    }
+
+    .full-with-gray11 {
+	background: rgb(210, 210, 210);
+    }
 }
