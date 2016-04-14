@@ -2,14 +2,15 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 @charset "utf-8";
-@import	"bootstrap";
 
-@mixin vertical-align {
-    position: relative;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+@import "layout-helper";
+@import	"bourbon/bourbon";
+@import "neat/neat";
+
+$header-image-height: 500px;
+
+body {
+    margin: 0;
 }
 
 blockquote.testimonial {
@@ -40,42 +41,36 @@ blockquote.testimonial:after {
 }
 
 .site-header {
+    @include outer-container(100%);
+    background: rgb(220, 220, 120);
+    
     .site-nav {
-	@extend .navbar;
-	@extend .navbar-default;
+	@include shift(1);
+	@include span-columns(6);
     }
 
     .site-nav-header {
-	@extend .container;
-	@extend .navbar-header;
     }
 
     .site-nav-menu {
-	@extend .nav;
-	@extend .navbar-nav;
     }    
 
     .site-title {
-	@extend .navbar-brand;
     }
 
     .site-nav-menu-container {
-	@extend .collapse;
-	@extend .navbar-collapse;
     }
 
     ul.site-nav-menu {
-	@extend .nav;
-	@extend .navbar-nav;
     }
 }
 
 .wrapper-footer {
-    background: rgb(220, 220, 220);
 }
 
 .site-footer {
-    @extend .container;
+    @include outer-container(100%);
+    background: rgb(220, 220, 220);
     padding: 30px 0;
 
     h1 {
@@ -83,55 +78,68 @@ blockquote.testimonial:after {
     }
 
     .service-info {
-	@include make-md-column(4);
+	@include shift(1);
+	@include span-columns(6);
     }
 
-    .service-list {
-	@include make-md-column(3);
+    & > .service-list {
+	@include span-columns(2);
+
+	ul {
+	    padding: 0;
+
+	    li {
+		padding: 0;
+	    }
+	}
     }
 }
 
+.page-content {
+    @include outer-container(100%);
 
-.frontpage {
+    & > section {
+	@include row();
+    }
+
     .header-image {
-	height: 500px;
-	background-image: url('/assets/business_coaching.jpg');
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: 50% 50%;
+	@include cover-image($header-image-height, '/assets/business_coaching.jpg');
 	margin-bottom: 50px;
     }
 
-    .content {
-	@extend .container;
-    }
+    .coaching-key-point {
 
-    .key-point-3 {
-	@include make-md-column(4);
     }
-
-    .key-point-2 {
-	@include make-md-column(6);
+    
+    .coaching-benefit {
+	padding: 4rem 0;
+	background: red;
+    }
+    
+    .key-point-3-column {
+	@include span-columns(1 of 3);
+    }
+    
+    .key-point-2-column {
+	@include span-columns(1 of 2);
     }
 
     .button {
-	@extend .btn;
     }
-
+    
     .key-point-cta {
 	text-align: right;
     }
-
+    
     .button-cta {
-	@extend .btn-success;
     }
-
-
+    
+    
     .full-content {
 	margin: 50px 0;
 	padding: 80px 0;
     }
-
+    
     .full-with-gray11 {
 	background: rgb(210, 210, 210);
     }
