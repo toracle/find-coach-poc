@@ -1,20 +1,52 @@
-$grid-columns: 14 !default;
+$site-header-footer-width-padding: 5em;
+$site-footer-height-padding: 2em;
+
+body {
+    margin: 0;
+}
 
 .site-header {
     @include outer-container(100%);
 
     .site-nav {
-	@include shift(1);
-	@include span-columns(6);
+	@include row();
+	padding: 0 $site-header-footer-width-padding;
+
+	.site-title {
+	    @include span-columns(2);
+	    padding: 16px 0;
+	}
+	
+	.site-nav-menu {
+	    @include span-columns(10);
+	    text-align: right;
+	    li {
+		display: inline-block;
+	    }
+	}
     }
+    .site-nav-header {
+    }
+    .site-nav-menu {
+    }    
+    .site-title {
+    }
+    .site-nav-menu-container {
+    }
+    ul.site-nav-menu {
+    }
+    
 }
 
 .site-footer {
     @include outer-container(100%);
+    padding-left: $site-header-footer-width-padding;
+    padding-right: $site-header-footer-width-padding;
+    padding-top: $site-footer-height-padding;
+    padding-bottom: $site-footer-height-padding;
 
     .service-info {
-	@include shift(1);
-	@include span-columns(6);
+	@include span-columns(8);
     }
 
     & > .service-list {
@@ -29,18 +61,28 @@ $grid-columns: 14 !default;
 }
 
 .page-content {
-    @include outer-container(100%);
+    width: 100%;
+    
     & > section {
+	@include outer-container();
 	@include row();
     }
     .haeder-image {
 	margin-bottom: 50px;
+    }
+    .coaching-key-point {
+
     }
     .coaching-benefit {
 	padding: 4rem 0;
     }
     .key-point-3-column {
 	@include span-columns(1 of 3);
+    }
+    .key-point-cta {
+	text-align: right;
+    }
+    .button-cta {
     }
     .key-point-2-column {
 	@include span-columns(1 of 2);
@@ -49,4 +91,10 @@ $grid-columns: 14 !default;
 	margin: 50px 0;
 	padding: 80px 0;
     }
+}
+
+article.post {
+    @include outer-container(100%);
+    @include row();
+    padding: $site-footer-height-padding $site-header-footer-width-padding;
 }

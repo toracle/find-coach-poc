@@ -1,0 +1,40 @@
+blockquote.testimonial {
+    border: 0px;
+    quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote.testimonial:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+}
+blockquote.testimonial:after {
+    color: #ccc;
+    content: close-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-top: 0.4em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+    float: right;
+    clear: both;
+}
+.quote-source {
+    text-align: right;
+}
+.header-image {
+    @include cover-image($header-image-height, '/assets/business_coaching.jpg');
+}
+.site-header {
+    background: rgb(220, 220, 150);
+}
+    
+.site-footer {
+    background: rgb(220, 220, 220);
+    
+    h1 {
+	font-size: 1.2em;
+    }
+}
