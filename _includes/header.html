@@ -1,15 +1,17 @@
 <!-- -*- engine: liquid -*- -->
-<header class="site-header">
-    <nav class="site-nav">
-	<a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
-	<ul class="site-nav-menu">
-	    {% for my_page in site.pages %}
-		{% if my_page.tag contains 'service' %}
-		    {% if my_page.title %}
-			<li><a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>
+<div class="header-wrapper">
+    <header class="site-header">
+	<nav class="site-nav">
+	    <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+	    <ul class="site-nav-menu">
+		{% for my_page in site.pages %}
+		    {% if my_page.tag contains 'service' %}
+			{% if my_page.title %}
+			    <li><a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>
+			{% endif %}
 		    {% endif %}
-		{% endif %}
 	    {% endfor %}
-	</ul>
-    </nav>
-</header>
+	    </ul>
+	</nav>
+    </header>
+</div>

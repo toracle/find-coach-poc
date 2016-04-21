@@ -4,18 +4,30 @@ title: 코칭 받기
 permalink: /get-coached.html
 tag: service
 ---
-
 <p>코칭을 받아보기로 마음을 정하셨나요? <strong>코치를 선택하는 방법</strong>을 확인하세요.</p>
 
 <p>원하는 코치를 찾아보세요</p>
 
 <h2>코치 목록</h2>
 
+<aside class="filter-list">
+    자격요건
+    <ul>
+	<li>KAC</li>
+	<li>KPC</li>
+	<li>KSC</li>
+    </ul>
+</aside>
+
 <section class="coach-list">
     {% for coach in site.coaches %}
 	<div class="coach-box">
-	    <a href="{{ coach.url }}">{{ coach.name }}</a>
-	    {{ coach.org }}
+	    <img class="coach-photo" src="{{ coach.photo_url }}">
+	    <a class="coach-name" href="{{ coach.url }}">{{ coach.name }}</a>
+	    <span class="coach-org">{{ coach.org }}</span>
+	    {% if coach.rate-min %}
+		<span class="coach-rate">시간당 {{ coach.rate-min | divide_by: 10000 }} ~ {{ coach.rate-max | divide_by: 10000 }}만원</span>
+	    {% endif %}
 	</div>
     {% endfor %}
 </section>
